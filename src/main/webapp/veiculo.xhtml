@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<div class="android-screen-section mdl-typography--text-center">
+			<div class="android-be-together-section mdl-typography--text-center">
+
+			</div>
+			<h2>Cadastro de Produtos</h2>
+			<h:form id="reg">
+				<h:panelGroup layout="block"
+					styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<h:outputLabel for="name" value="Nome do Produto:"
+						styleClass="mdl-textfield__label" />
+					<h:inputText id="name" value="#{newProduto.nome}"
+						styleClass="mdl-textfield__input" />
+					<h:message for="nome" errorClass="mdl-textfield__error" />
+
+				</h:panelGroup>
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="complemento" value="Complemento:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="complemento" value="#{newProduto.complemento}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="complemento" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+				<p>
+					<h:panelGroup layout="block">
+						<h:commandButton id="register"
+							action="#{produtoController.register}" value="Register"
+							styleClass="mdl-button mdl-js-button mdl-button--raised" />
+						<h:messages styleClass="messages" errorClass="invalid"
+							infoClass="valid" warnClass="warning" globalOnly="true" />
+					</h:panelGroup>
+				</p>
+			</h:form>
+			<div class="mdl-typography--display-1-color-contrast">Produtos</div>
+			<h:panelGroup rendered="#{empty produtos}">
+				<em>Nenhuma Marca Registrada.</em>
+			</h:panelGroup>
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col"></div>
+				<h:panelGroup>
+					<div class="mdl-cell mdl-cell--4-col">
+						<h:dataTable var="_produto" value="#{produtos}"
+							rendered="#{not empty produtos}"
+							styleClass="mdl-data-table mdl-js-data-table mdl-data-table- mdl-shadow--2dp">
+							<h:column>
+								<f:facet name="header">Id</f:facet>
+                #{_produto.id}
+            </h:column>
+							<h:column>
+								<f:facet name="header">Name</f:facet>
+                #{_produto.nome}
+            </h:column>
+
+							<h:column>
+								<f:facet name="header">Name</f:facet>
+                #{_produto.complemento}
+            </h:column>
+						</h:dataTable>
+					</div>
+				</h:panelGroup>
+
+				<div class="mdl-cell mdl-cell--4-col"></div>
+
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
