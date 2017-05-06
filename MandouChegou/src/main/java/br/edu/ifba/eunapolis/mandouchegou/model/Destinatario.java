@@ -1,34 +1,19 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
  */
 @Entity
-public class Destinatario implements Serializable {
+public class Destinatario extends Pessoa{
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    private String comentario;
+    
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
 
@@ -39,15 +24,26 @@ public class Destinatario implements Serializable {
             return false;
         }
         Destinatario other = (Destinatario) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((getId() == null && other.getId() != null) || (getId() != null && !getId().equals(other.getId())));
     }
 
     @Override
     public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.Destinatario[ id=" + id + " ]";
+        return "br.edu.ifba.eunapolis.mandouchegou.model.Destinatario[ id=" + getId() + " ]";
+    }
+
+    /**
+     * @return the comentario
+     */
+    public String getComentario() {
+        return comentario;
+    }
+
+    /**
+     * @param comentario the comentario to set
+     */
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 
 }

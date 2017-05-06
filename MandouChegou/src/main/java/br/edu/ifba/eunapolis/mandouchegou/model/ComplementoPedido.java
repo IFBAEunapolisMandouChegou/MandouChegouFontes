@@ -17,6 +17,11 @@ public class ComplementoPedido implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    String nome;
+    String descricao;
+    Double valorMaterial;
+    Boolean retornavel;
+    
     public Long getId() {
         return id;
     }

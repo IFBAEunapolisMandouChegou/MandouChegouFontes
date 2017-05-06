@@ -1,6 +1,7 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,10 @@ public class Contratante implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private Pessoa pessoa;
+    private List<Pedido> pedidos;
+    private List<FaturaContratante> faturas;
 
     public Long getId() {
         return id;
@@ -48,6 +53,48 @@ public class Contratante implements Serializable {
     @Override
     public String toString() {
         return "br.edu.ifba.eunapolis.mandouchegou.model.Contratante[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the pessoa
+     */
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    /**
+     * @param pessoa the pessoa to set
+     */
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    /**
+     * @return the pedidos
+     */
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    /**
+     * @param pedidos the pedidos to set
+     */
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    /**
+     * @return the faturas
+     */
+    public List<FaturaContratante> getFaturas() {
+        return faturas;
+    }
+
+    /**
+     * @param faturas the faturas to set
+     */
+    public void setFaturas(List<FaturaContratante> faturas) {
+        this.faturas = faturas;
     }
 
 }

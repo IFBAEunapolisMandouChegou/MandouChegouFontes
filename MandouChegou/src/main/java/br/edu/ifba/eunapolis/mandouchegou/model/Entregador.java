@@ -1,6 +1,7 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,13 @@ public class Entregador implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private PessoaFisica pessoa;
+    private CarteiraHabilitacao cnh;
+    private List<Veiculo> veiculos;
+    private List<Entrega> entregas;
+    private List<PagamentoEntregador> pagamentos;
+    
 
     public Long getId() {
         return id;
@@ -48,6 +56,76 @@ public class Entregador implements Serializable {
     @Override
     public String toString() {
         return "br.edu.ifba.eunapolis.mandouchegou.model.Entregador[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the pessoa
+     */
+    public PessoaFisica getPessoa() {
+        return pessoa;
+    }
+
+    /**
+     * @param pessoa the pessoa to set
+     */
+    public void setPessoa(PessoaFisica pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    /**
+     * @return the cnh
+     */
+    public CarteiraHabilitacao getCnh() {
+        return cnh;
+    }
+
+    /**
+     * @param cnh the cnh to set
+     */
+    public void setCnh(CarteiraHabilitacao cnh) {
+        this.cnh = cnh;
+    }
+
+    /**
+     * @return the veiculos
+     */
+    public List<Veiculo> getVeiculos() {
+        return veiculos;
+    }
+
+    /**
+     * @param veiculos the veiculos to set
+     */
+    public void setVeiculos(List<Veiculo> veiculos) {
+        this.veiculos = veiculos;
+    }
+
+    /**
+     * @return the entregas
+     */
+    public List<Entrega> getEntregas() {
+        return entregas;
+    }
+
+    /**
+     * @param entregas the entregas to set
+     */
+    public void setEntregas(List<Entrega> entregas) {
+        this.entregas = entregas;
+    }
+
+    /**
+     * @return the pagamentos
+     */
+    public List<PagamentoEntregador> getPagamentos() {
+        return pagamentos;
+    }
+
+    /**
+     * @param pagamentos the pagamentos to set
+     */
+    public void setPagamentos(List<PagamentoEntregador> pagamentos) {
+        this.pagamentos = pagamentos;
     }
 
 }

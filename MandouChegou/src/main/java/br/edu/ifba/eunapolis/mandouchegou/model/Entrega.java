@@ -1,6 +1,7 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,10 @@ public class Entrega implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    private Pedido pedido;
+    private Entregador entregador;
+    private Date data;
 
     public Long getId() {
         return id;
@@ -48,6 +53,48 @@ public class Entrega implements Serializable {
     @Override
     public String toString() {
         return "br.edu.ifba.eunapolis.mandouchegou.model.Entrega[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the pedido
+     */
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    /**
+     * @param pedido the pedido to set
+     */
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    /**
+     * @return the entregador
+     */
+    public Entregador getEntregador() {
+        return entregador;
+    }
+
+    /**
+     * @param entregador the entregador to set
+     */
+    public void setEntregador(Entregador entregador) {
+        this.entregador = entregador;
+    }
+
+    /**
+     * @return the data
+     */
+    public Date getData() {
+        return data;
+    }
+
+    /**
+     * @param data the data to set
+     */
+    public void setData(Date data) {
+        this.data = data;
     }
 
 }

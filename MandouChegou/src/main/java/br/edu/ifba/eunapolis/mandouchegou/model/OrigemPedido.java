@@ -17,6 +17,10 @@ public class OrigemPedido implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Contratante contratante;
+    private String endereco;
+    private String comentario;
+    
     public Long getId() {
         return id;
     }
@@ -48,6 +52,48 @@ public class OrigemPedido implements Serializable {
     @Override
     public String toString() {
         return "br.edu.ifba.eunapolis.mandouchegou.model.OrigemPedido[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the contratante
+     */
+    public Contratante getContratante() {
+        return contratante;
+    }
+
+    /**
+     * @param contratante the contratante to set
+     */
+    public void setContratante(Contratante contratante) {
+        this.contratante = contratante;
+    }
+
+    /**
+     * @return the endereco
+     */
+    public String getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    /**
+     * @return the comentario
+     */
+    public String getComentario() {
+        return comentario;
+    }
+
+    /**
+     * @param comentario the comentario to set
+     */
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
     }
 
 }

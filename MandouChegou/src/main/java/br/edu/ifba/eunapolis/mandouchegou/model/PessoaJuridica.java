@@ -1,34 +1,21 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
  */
 @Entity
 public class PessoaJuridica extends Pessoa{
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    
+    private String cnpj;
+    private String inscricaoEstadual;
+    private String razoSocial;
+    
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
 
@@ -39,7 +26,7 @@ public class PessoaJuridica extends Pessoa{
             return false;
         }
         PessoaJuridica other = (PessoaJuridica) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((getId() == null && other.getId() != null) || (getId() != null && !getId().equals(other.getId()))) {
             return false;
         }
         return true;
@@ -47,7 +34,49 @@ public class PessoaJuridica extends Pessoa{
 
     @Override
     public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.PessoaJuridica[ id=" + id + " ]";
+        return "br.edu.ifba.eunapolis.mandouchegou.model.PessoaJuridica[ id=" + getId() + " ]";
+    }
+
+    /**
+     * @return the cnpj
+     */
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    /**
+     * @param cnpj the cnpj to set
+     */
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    /**
+     * @return the inscricaoEstadual
+     */
+    public String getInscricaoEstadual() {
+        return inscricaoEstadual;
+    }
+
+    /**
+     * @param inscricaoEstadual the inscricaoEstadual to set
+     */
+    public void setInscricaoEstadual(String inscricaoEstadual) {
+        this.inscricaoEstadual = inscricaoEstadual;
+    }
+
+    /**
+     * @return the razoSocial
+     */
+    public String getRazoSocial() {
+        return razoSocial;
+    }
+
+    /**
+     * @param razoSocial the razoSocial to set
+     */
+    public void setRazoSocial(String razoSocial) {
+        this.razoSocial = razoSocial;
     }
 
 }

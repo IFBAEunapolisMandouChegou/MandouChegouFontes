@@ -1,6 +1,8 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,9 @@ public class PagamentoEntregador implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private List<Entrega> entregas;
+    private Date dataPagamento;
+    
     public Long getId() {
         return id;
     }
@@ -48,6 +53,34 @@ public class PagamentoEntregador implements Serializable {
     @Override
     public String toString() {
         return "br.edu.ifba.eunapolis.mandouchegou.model.PagamentoEntregador[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the entregas
+     */
+    public List<Entrega> getEntregas() {
+        return entregas;
+    }
+
+    /**
+     * @param entregas the entregas to set
+     */
+    public void setEntregas(List<Entrega> entregas) {
+        this.entregas = entregas;
+    }
+
+    /**
+     * @return the dataPagamento
+     */
+    public Date getDataPagamento() {
+        return dataPagamento;
+    }
+
+    /**
+     * @param dataPagamento the dataPagamento to set
+     */
+    public void setDataPagamento(Date dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 
 }

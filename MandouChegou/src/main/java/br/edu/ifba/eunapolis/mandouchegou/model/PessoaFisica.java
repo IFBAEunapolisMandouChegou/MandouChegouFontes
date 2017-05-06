@@ -1,34 +1,23 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
-import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
  */
 @Entity
-public class PessoaFisica implements Serializable {
+public class PessoaFisica extends Pessoa{
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    private String rg;
+    private String cpf;
+    private Date dataNascimento;
+    private String sexo;
+    
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
 
@@ -39,15 +28,67 @@ public class PessoaFisica implements Serializable {
             return false;
         }
         PessoaFisica other = (PessoaFisica) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((getId() == null && other.getId() != null) || (getId() != null && !getId().equals(other.getId())));
     }
 
     @Override
     public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.PessoaFisica[ id=" + id + " ]";
+        return "br.edu.ifba.eunapolis.mandouchegou.model.PessoaFisica[ id=" + getId() + " ]";
     }
 
+    /**
+     * @return the rg
+     */
+    public String getRg() {
+        return rg;
+    }
+
+    /**
+     * @param rg the rg to set
+     */
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    /**
+     * @return the cpf
+     */
+    public String getCpf() {
+        return cpf;
+    }
+
+    /**
+     * @param cpf the cpf to set
+     */
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    /**
+     * @return the dataNascimento
+     */
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    /**
+     * @param dataNascimento the dataNascimento to set
+     */
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    /**
+     * @return the sexo
+     */
+    public String getSexo() {
+        return sexo;
+    }
+
+    /**
+     * @param sexo the sexo to set
+     */
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 }

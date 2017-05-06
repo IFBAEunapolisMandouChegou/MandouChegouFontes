@@ -17,6 +17,10 @@ public class CupomDesconto implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private Double porcetagemDesconto;
+    private String nome;
+    private String descricao;
+    
     public Long getId() {
         return id;
     }
@@ -48,6 +52,48 @@ public class CupomDesconto implements Serializable {
     @Override
     public String toString() {
         return "br.edu.ifba.eunapolis.mandouchegou.model.CupomDesconto[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the porcetagemDesconto
+     */
+    public Double getPorcetagemDesconto() {
+        return porcetagemDesconto;
+    }
+
+    /**
+     * @param porcetagemDesconto the porcetagemDesconto to set
+     */
+    public void setPorcetagemDesconto(Double porcetagemDesconto) {
+        this.porcetagemDesconto = porcetagemDesconto;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * @param descricao the descricao to set
+     */
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
 }

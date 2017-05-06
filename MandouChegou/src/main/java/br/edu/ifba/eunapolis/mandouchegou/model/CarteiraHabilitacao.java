@@ -1,6 +1,7 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,10 @@ public class CarteiraHabilitacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String numeracao;
+    private String categoria;
+    private Date dataVencimento;
+    
     public Long getId() {
         return id;
     }
@@ -48,6 +53,48 @@ public class CarteiraHabilitacao implements Serializable {
     @Override
     public String toString() {
         return "br.edu.ifba.eunapolis.mandouchegou.model.CarteiraHabilitacao[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the numeracao
+     */
+    public String getNumeracao() {
+        return numeracao;
+    }
+
+    /**
+     * @param numeracao the numeracao to set
+     */
+    public void setNumeracao(String numeracao) {
+        this.numeracao = numeracao;
+    }
+
+    /**
+     * @return the categoria
+     */
+    public String getCategoria() {
+        return categoria;
+    }
+
+    /**
+     * @param categoria the categoria to set
+     */
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    /**
+     * @return the dataVencimento
+     */
+    public Date getDataVencimento() {
+        return dataVencimento;
+    }
+
+    /**
+     * @param dataVencimento the dataVencimento to set
+     */
+    public void setDataVencimento(Date dataVencimento) {
+        this.dataVencimento = dataVencimento;
     }
 
 }
