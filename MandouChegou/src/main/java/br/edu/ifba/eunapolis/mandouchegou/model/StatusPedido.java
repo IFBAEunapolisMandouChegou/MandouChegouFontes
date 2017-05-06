@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
@@ -19,6 +20,8 @@ public class StatusPedido implements Serializable {
     private Long id;
 
     private String nome;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date hora;
     
     public Long getId() {
@@ -27,31 +30,6 @@ public class StatusPedido implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof StatusPedido)) {
-            return false;
-        }
-        StatusPedido other = (StatusPedido) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.StatusPedido[ id=" + id + " ]";
     }
 
     /**
@@ -81,5 +59,4 @@ public class StatusPedido implements Serializable {
     public void setHora(Date hora) {
         this.hora = hora;
     }
-
 }

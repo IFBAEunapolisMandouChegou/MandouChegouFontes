@@ -1,11 +1,14 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
@@ -18,41 +21,44 @@ public class Contratante implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @OneToOne
     private Pessoa pessoa;
-    private List<Pedido> pedidos;
-    private List<FaturaContratante> faturas;
+    
+    @OneToMany
+    private final List<Pedido> pedidos;
+    
+    @OneToMany
+    private final List<FaturaContratante> faturas;
 
+    public Contratante(){
+        this.faturas = new ArrayList<>();
+        this.pedidos = new ArrayList<>();
+    }
+
+    public boolean addFatura(FaturaContratante fatura){
+        return this.faturas.add(fatura);
+    }
+    
+    public boolean removeFatura(FaturaContratante fatura){
+        return this.faturas.remove(fatura);
+    }
+    
+    public boolean addPedido(Pedido pedido){
+        return this.pedidos.add(pedido);
+    }
+    
+    public boolean removePediatdo(Pedido pedido){
+        return this.pedidos.remove(pedido);
+    }
+    
+    
+    // Getters and Setters......................................................
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Contratante)) {
-            return false;
-        }
-        Contratante other = (Contratante) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.Contratante[ id=" + id + " ]";
     }
 
     /**
@@ -77,24 +83,9 @@ public class Contratante implements Serializable {
     }
 
     /**
-     * @param pedidos the pedidos to set
-     */
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    /**
      * @return the faturas
      */
     public List<FaturaContratante> getFaturas() {
         return faturas;
     }
-
-    /**
-     * @param faturas the faturas to set
-     */
-    public void setFaturas(List<FaturaContratante> faturas) {
-        this.faturas = faturas;
-    }
-
 }

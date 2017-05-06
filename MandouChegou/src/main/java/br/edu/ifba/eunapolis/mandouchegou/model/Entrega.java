@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
@@ -18,9 +20,14 @@ public class Entrega implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @OneToOne
     private Pedido pedido;
+    
+    @OneToOne
     private Entregador entregador;
-    private Date data;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataConclusao;
 
     public Long getId() {
         return id;
@@ -84,17 +91,17 @@ public class Entrega implements Serializable {
     }
 
     /**
-     * @return the data
+     * @return the dataConclusao
      */
-    public Date getData() {
-        return data;
+    public Date getDataConclusao() {
+        return dataConclusao;
     }
 
     /**
-     * @param data the data to set
+     * @param dataConclusao the dataConclusao to set
      */
-    public void setData(Date data) {
-        this.data = data;
+    public void setDataConclusao(Date dataConclusao) {
+        this.dataConclusao = dataConclusao;
     }
 
 }

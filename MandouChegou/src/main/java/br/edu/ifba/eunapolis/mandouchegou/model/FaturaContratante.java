@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
@@ -19,10 +21,18 @@ public class FaturaContratante implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @OneToMany
     private List<Pedido> pedidos;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataFechamento;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataVencimento;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataPagamento;
+    
     private Double totalFatura;
     private Double valorPago;
     
@@ -33,32 +43,7 @@ public class FaturaContratante implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof FaturaContratante)) {
-            return false;
-        }
-        FaturaContratante other = (FaturaContratante) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.FaturaContratante[ id=" + id + " ]";
-    }
-
+    
     /**
      * @return the pedidos
      */
@@ -142,5 +127,4 @@ public class FaturaContratante implements Serializable {
     public void setValorPago(Double valorPago) {
         this.valorPago = valorPago;
     }
-
 }

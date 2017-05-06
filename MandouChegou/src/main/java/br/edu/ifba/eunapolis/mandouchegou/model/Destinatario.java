@@ -1,35 +1,48 @@
 package br.edu.ifba.eunapolis.mandouchegou.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
  */
 @Entity
-public class Destinatario extends Pessoa{
+public class Destinatario implements Serializable {
 
-    private String comentario;
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (getId() != null ? getId().hashCode() : 0);
-        return hash;
+    @OneToOne
+    private Pessoa pessoa;
+    
+    private String comentario;
+
+    public Long getId() {
+        return id;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Destinatario)) {
-            return false;
-        }
-        Destinatario other = (Destinatario) object;
-        return !((getId() == null && other.getId() != null) || (getId() != null && !getId().equals(other.getId())));
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.Destinatario[ id=" + getId() + " ]";
+    /**
+     * @return the pessoa
+     */
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    /**
+     * @param pessoa the pessoa to set
+     */
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     /**
@@ -45,5 +58,4 @@ public class Destinatario extends Pessoa{
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-
 }

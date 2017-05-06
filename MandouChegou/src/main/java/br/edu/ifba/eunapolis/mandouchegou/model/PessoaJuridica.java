@@ -12,31 +12,6 @@ public class PessoaJuridica extends Pessoa{
     private String inscricaoEstadual;
     private String razoSocial;
     
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (getId() != null ? getId().hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PessoaJuridica)) {
-            return false;
-        }
-        PessoaJuridica other = (PessoaJuridica) object;
-        if ((getId() == null && other.getId() != null) || (getId() != null && !getId().equals(other.getId()))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.PessoaJuridica[ id=" + getId() + " ]";
-    }
-
     /**
      * @return the cnpj
      */
@@ -78,5 +53,4 @@ public class PessoaJuridica extends Pessoa{
     public void setRazoSocial(String razoSocial) {
         this.razoSocial = razoSocial;
     }
-
 }

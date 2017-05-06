@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
@@ -20,15 +23,29 @@ public class Pedido implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
     private OrigemPedido origem;
+
+    @ManyToOne
     private Destinatario destinatario;
+  
+    @ManyToOne
     private Entregador entregador;
-    private Double frete;
-    private List<ComplementoPedido> complementos;
-    private Stack<StatusPedido> status;
-    private String comentario;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataAbertura;
+    
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataConclusao;
+    
+    @OneToMany
+    private List<ComplementoPedido> complementos;
+    
+    @OneToMany
+    private Stack<StatusPedido> status;
+    
+    private Double frete;
+    private String comentario;
     
     public Long getId() {
         return id;
@@ -36,31 +53,6 @@ public class Pedido implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Pedido)) {
-            return false;
-        }
-        Pedido other = (Pedido) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.Pedido[ id=" + id + " ]";
     }
 
     /**

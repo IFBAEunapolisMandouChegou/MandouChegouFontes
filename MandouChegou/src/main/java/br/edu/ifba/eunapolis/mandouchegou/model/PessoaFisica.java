@@ -2,6 +2,7 @@ package br.edu.ifba.eunapolis.mandouchegou.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
@@ -11,30 +12,10 @@ public class PessoaFisica extends Pessoa{
 
     private String rg;
     private String cpf;
-    private Date dataNascimento;
     private String sexo;
     
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (getId() != null ? getId().hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PessoaFisica)) {
-            return false;
-        }
-        PessoaFisica other = (PessoaFisica) object;
-        return !((getId() == null && other.getId() != null) || (getId() != null && !getId().equals(other.getId())));
-    }
-
-    @Override
-    public String toString() {
-        return "br.edu.ifba.eunapolis.mandouchegou.model.PessoaFisica[ id=" + getId() + " ]";
-    }
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataNascimento;
 
     /**
      * @return the rg

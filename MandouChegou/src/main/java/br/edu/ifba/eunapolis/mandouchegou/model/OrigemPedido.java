@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * @author Matheus Thales - mtxthales@hotmail.com
@@ -17,7 +18,9 @@ public class OrigemPedido implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
     private Contratante contratante;
+    
     private String endereco;
     private String comentario;
     
