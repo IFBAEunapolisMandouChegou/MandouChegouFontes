@@ -103,5 +103,4 @@ public class Entrega implements Serializable {
     public void setDataConclusao(Date dataConclusao) {
         this.dataConclusao = dataConclusao;
     }
-
 }
