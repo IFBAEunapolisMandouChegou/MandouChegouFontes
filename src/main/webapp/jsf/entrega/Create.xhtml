@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EntregaCreateDlg" widgetVar="EntregaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEntregaTitle}">
+            <h:form id="EntregaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{entregaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEntregaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{entregaController.selected.id}" title="#{bundle.CreateEntregaTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateEntregaLabel_pedido}" for="pedido" />
+                        <p:selectOneMenu id="pedido" value="#{entregaController.selected.pedido}" >
+                            <f:selectItems value="#{pedidoController.itemsAvailableSelectOne}"
+                                           var="pedidoItem"
+                                           itemValue="#{pedidoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEntregaLabel_entregador}" for="entregador" />
+                        <p:selectOneMenu id="entregador" value="#{entregaController.selected.entregador}" >
+                            <f:selectItems value="#{entregadorController.itemsAvailableSelectOne}"
+                                           var="entregadorItem"
+                                           itemValue="#{entregadorItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEntregaLabel_conclusao}" for="conclusao" />
+                        <p:calendar id="conclusao" pattern="MM/dd/yyyy HH:mm:ss" value="#{entregaController.selected.conclusao}" title="#{bundle.EditEntregaTitle_conclusao}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{entregaController.create}" value="#{bundle.Save}" update="display,:EntregaListForm:datalist,:growl" oncomplete="handleSubmit(args,'EntregaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EntregaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

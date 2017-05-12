@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PessoaFisicaEditDlg" widgetVar="PessoaFisicaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPessoaFisicaTitle}">
+            <h:form id="PessoaFisicaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pessoaFisicaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_rg}" for="rg" />
+                        <p:inputText id="rg" value="#{pessoaFisicaController.selected.rg}" title="#{bundle.EditPessoaFisicaTitle_rg}" />
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_cpf}" for="cpf" />
+                        <p:inputText id="cpf" value="#{pessoaFisicaController.selected.cpf}" title="#{bundle.EditPessoaFisicaTitle_cpf}" />
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_dataNascimento}" for="dataNascimento" />
+                        <p:calendar id="dataNascimento" pattern="MM/dd/yyyy" value="#{pessoaFisicaController.selected.dataNascimento}" title="#{bundle.EditPessoaFisicaTitle_dataNascimento}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_sexo}" for="sexo" />
+                        <p:inputText id="sexo" value="#{pessoaFisicaController.selected.sexo}" title="#{bundle.EditPessoaFisicaTitle_sexo}" />
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{pessoaFisicaController.selected.id}" title="#{bundle.EditPessoaFisicaTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{pessoaFisicaController.selected.nome}" title="#{bundle.EditPessoaFisicaTitle_nome}" />
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_endereco}" for="endereco" />
+                        <p:inputText id="endereco" value="#{pessoaFisicaController.selected.endereco}" title="#{bundle.EditPessoaFisicaTitle_endereco}" />
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_telefone}" for="telefone" />
+                        <p:inputText id="telefone" value="#{pessoaFisicaController.selected.telefone}" title="#{bundle.EditPessoaFisicaTitle_telefone}" />
+                        <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{pessoaFisicaController.selected.email}" title="#{bundle.EditPessoaFisicaTitle_email}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{pessoaFisicaController.update}" value="#{bundle.Save}" update="display,:PessoaFisicaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PessoaFisicaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PessoaFisicaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

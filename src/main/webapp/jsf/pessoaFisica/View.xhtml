@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PessoaFisicaViewDlg" widgetVar="PessoaFisicaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPessoaFisicaTitle}">
+            <h:form id="PessoaFisicaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{pessoaFisicaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_rg}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.rg}" title="#{bundle.ViewPessoaFisicaTitle_rg}"/>
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_cpf}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.cpf}" title="#{bundle.ViewPessoaFisicaTitle_cpf}"/>
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_dataNascimento}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.dataNascimento}" title="#{bundle.ViewPessoaFisicaTitle_dataNascimento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_sexo}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.sexo}" title="#{bundle.ViewPessoaFisicaTitle_sexo}"/>
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_id}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.id}" title="#{bundle.ViewPessoaFisicaTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_nome}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.nome}" title="#{bundle.ViewPessoaFisicaTitle_nome}"/>
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_endereco}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.endereco}" title="#{bundle.ViewPessoaFisicaTitle_endereco}"/>
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_telefone}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.telefone}" title="#{bundle.ViewPessoaFisicaTitle_telefone}"/>
+                        <h:outputText value="#{bundle.ViewPessoaFisicaLabel_email}"/>
+                        <h:outputText value="#{pessoaFisicaController.selected.email}" title="#{bundle.ViewPessoaFisicaTitle_email}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PessoaFisicaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

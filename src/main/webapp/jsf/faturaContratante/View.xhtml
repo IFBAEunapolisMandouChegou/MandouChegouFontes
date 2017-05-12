@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FaturaContratanteViewDlg" widgetVar="FaturaContratanteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFaturaContratanteTitle}">
+            <h:form id="FaturaContratanteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{faturaContratanteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFaturaContratanteLabel_id}"/>
+                        <h:outputText value="#{faturaContratanteController.selected.id}" title="#{bundle.ViewFaturaContratanteTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewFaturaContratanteLabel_fechamento}"/>
+                        <h:outputText value="#{faturaContratanteController.selected.fechamento}" title="#{bundle.ViewFaturaContratanteTitle_fechamento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFaturaContratanteLabel_vencimento}"/>
+                        <h:outputText value="#{faturaContratanteController.selected.vencimento}" title="#{bundle.ViewFaturaContratanteTitle_vencimento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFaturaContratanteLabel_dataPagamento}"/>
+                        <h:outputText value="#{faturaContratanteController.selected.dataPagamento}" title="#{bundle.ViewFaturaContratanteTitle_dataPagamento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewFaturaContratanteLabel_totalFatura}"/>
+                        <h:outputText value="#{faturaContratanteController.selected.totalFatura}" title="#{bundle.ViewFaturaContratanteTitle_totalFatura}"/>
+                        <h:outputText value="#{bundle.ViewFaturaContratanteLabel_valorPago}"/>
+                        <h:outputText value="#{faturaContratanteController.selected.valorPago}" title="#{bundle.ViewFaturaContratanteTitle_valorPago}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FaturaContratanteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

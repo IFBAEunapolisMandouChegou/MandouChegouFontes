@@ -1,0 +1,57 @@
+package br.edu.ifba.eunapolis.disunity.mandouchegou.model;
+
+import br.edu.ifba.eunapolis.disunity.mandouchegou.model.Pessoa;
+import javax.persistence.Entity;
+
+/**
+ * @author Matheus Thales - mtxthales@hotmail.com
+ */
+@Entity
+public class PessoaJuridica extends Pessoa{
+    
+    private String cnpj;
+    private String inscricaoEstadual;
+    private String razoSocial;
+    
+    /**
+     * @return the cnpj
+     */
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    /**
+     * @param cnpj the cnpj to set
+     */
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    /**
+     * @return the inscricaoEstadual
+     */
+    public String getInscricaoEstadual() {
+        return inscricaoEstadual;
+    }
+
+    /**
+     * @param inscricaoEstadual the inscricaoEstadual to set
+     */
+    public void setInscricaoEstadual(String inscricaoEstadual) {
+        this.inscricaoEstadual = inscricaoEstadual;
+    }
+
+    /**
+     * @return the razoSocial
+     */
+    public String getRazoSocial() {
+        return razoSocial;
+    }
+
+    /**
+     * @param razoSocial the razoSocial to set
+     */
+    public void setRazoSocial(String razoSocial) {
+        this.razoSocial = razoSocial;
+    }
+}

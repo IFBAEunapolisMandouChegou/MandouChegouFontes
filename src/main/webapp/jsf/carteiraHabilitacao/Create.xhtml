@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CarteiraHabilitacaoCreateDlg" widgetVar="CarteiraHabilitacaoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCarteiraHabilitacaoTitle}">
+            <h:form id="CarteiraHabilitacaoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{carteiraHabilitacaoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCarteiraHabilitacaoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{carteiraHabilitacaoController.selected.id}" title="#{bundle.CreateCarteiraHabilitacaoTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateCarteiraHabilitacaoLabel_numeracao}" for="numeracao" />
+                        <p:inputText id="numeracao" value="#{carteiraHabilitacaoController.selected.numeracao}" title="#{bundle.CreateCarteiraHabilitacaoTitle_numeracao}" />
+                        <p:outputLabel value="#{bundle.CreateCarteiraHabilitacaoLabel_categoria}" for="categoria" />
+                        <p:inputText id="categoria" value="#{carteiraHabilitacaoController.selected.categoria}" title="#{bundle.CreateCarteiraHabilitacaoTitle_categoria}" />
+                        <p:outputLabel value="#{bundle.CreateCarteiraHabilitacaoLabel_vencimento}" for="vencimento" />
+                        <p:calendar id="vencimento" pattern="MM/dd/yyyy" value="#{carteiraHabilitacaoController.selected.vencimento}" title="#{bundle.EditCarteiraHabilitacaoTitle_vencimento}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{carteiraHabilitacaoController.create}" value="#{bundle.Save}" update="display,:CarteiraHabilitacaoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CarteiraHabilitacaoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CarteiraHabilitacaoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
