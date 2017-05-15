@@ -25,10 +25,10 @@ public class Contratante implements Serializable {
     private Pessoa pessoa;
     
     @OneToMany
-    private final List<Pedido> pedidos;
+    private List<Pedido> pedidos;
     
     @OneToMany
-    private final List<FaturaContratante> faturas;
+    private List<FaturaContratante> faturas;
 
     public Contratante(){
         this.faturas = new ArrayList<>();

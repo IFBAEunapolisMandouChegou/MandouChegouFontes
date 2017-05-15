@@ -23,6 +23,8 @@ import javax.faces.convert.FacesConverter;
 @SessionScoped
 public class CupomDescontoController implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
     @EJB
     private br.edu.ifba.eunapolis.disunity.mandouchegou.jpa.session.CupomDescontoFacade ejbFacade;
     private List<CupomDesconto> items = null;

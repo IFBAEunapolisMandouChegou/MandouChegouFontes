@@ -23,7 +23,9 @@ import javax.faces.convert.FacesConverter;
 @SessionScoped
 public class CarteiraHabilitacaoController implements Serializable {
 
-    @EJB
+	private static final long serialVersionUID = 1L;
+	
+	@EJB
     private br.edu.ifba.eunapolis.disunity.mandouchegou.jpa.session.CarteiraHabilitacaoFacade ejbFacade;
     private List<CarteiraHabilitacao> items = null;
     private CarteiraHabilitacao selected;

@@ -23,6 +23,8 @@ import javax.faces.convert.FacesConverter;
 @SessionScoped
 public class EntregaController implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
     @EJB
     private br.edu.ifba.eunapolis.disunity.mandouchegou.jpa.session.EntregaFacade ejbFacade;
     private List<Entrega> items = null;

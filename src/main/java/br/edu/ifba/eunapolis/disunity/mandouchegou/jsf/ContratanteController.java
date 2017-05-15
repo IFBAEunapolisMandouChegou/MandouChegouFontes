@@ -23,7 +23,9 @@ import javax.faces.convert.FacesConverter;
 @SessionScoped
 public class ContratanteController implements Serializable {
 
-    @EJB
+	private static final long serialVersionUID = 1L;
+	
+	@EJB
     private br.edu.ifba.eunapolis.disunity.mandouchegou.jpa.session.ContratanteFacade ejbFacade;
     private List<Contratante> items = null;
     private Contratante selected;

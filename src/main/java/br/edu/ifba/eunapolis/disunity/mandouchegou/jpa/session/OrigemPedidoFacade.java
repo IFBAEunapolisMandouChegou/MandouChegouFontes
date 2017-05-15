@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class OrigemPedidoFacade extends AbstractFacade<OrigemPedido> {
 
-    @PersistenceContext(unitName = "br.edu.ifba.eunapolis.desunity.mandouchegou_pu")
+    @PersistenceContext(unitName = "br.edu.ifba.eunapolis.disunity.mandouchegou_pu")
     private EntityManager em;
 
     @Override

@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class CarteiraHabilitacaoFacade extends AbstractFacade<CarteiraHabilitacao> {
 
-    @PersistenceContext(unitName = "br.edu.ifba.eunapolis.desunity.mandouchegou_pu")
+    @PersistenceContext(unitName = "br.edu.ifba.eunapolis.disunity.mandouchegou_pu")
     private EntityManager em;
 
     @Override

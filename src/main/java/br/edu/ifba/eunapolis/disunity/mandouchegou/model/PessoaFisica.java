@@ -11,7 +11,9 @@ import javax.persistence.Temporal;
 @Entity
 public class PessoaFisica extends Pessoa{
 
-    private String rg;
+	private static final long serialVersionUID = 1L;
+	
+	private String rg;
     private String cpf;
     private String sexo;
     

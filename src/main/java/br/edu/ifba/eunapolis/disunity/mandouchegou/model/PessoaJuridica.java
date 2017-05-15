@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 @Entity
 public class PessoaJuridica extends Pessoa{
     
-    private String cnpj;
+	private static final long serialVersionUID = 1L;
+	
+	private String cnpj;
     private String inscricaoEstadual;
     private String razoSocial;
     
