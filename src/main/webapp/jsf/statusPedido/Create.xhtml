@@ -19,7 +19,7 @@
                         <p:outputLabel value="#{bundle.CreateStatusPedidoLabel_hora}" for="hora" />
                         <p:calendar id="hora" pattern="MM/dd/yyyy HH:mm:ss" value="#{statusPedidoController.selected.hora}" title="#{bundle.EditStatusPedidoTitle_hora}"  showOn="button"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{statusPedidoController.create}" value="#{bundle.Save}" update="display,:StatusPedidoListForm:datalist,:growl" oncomplete="handleSubmit(args,'StatusPedidoCreateDialog');"/>
+                    <p:commandButton actionListener="#{statusPedidoController.create()}" value="#{bundle.Save}" update="display,:StatusPedidoListForm:datalist,:growl" oncomplete="handleSubmit(args,'StatusPedidoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="StatusPedidoCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

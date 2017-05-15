@@ -29,7 +29,7 @@
                                            itemValue="#{cnhItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{entregadorController.update}" value="#{bundle.Save}" update="display,:EntregadorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EntregadorEditDialog');"/>
+                    <p:commandButton actionListener="#{entregadorController.update()}" value="#{bundle.Save}" update="display,:EntregadorListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EntregadorEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EntregadorEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

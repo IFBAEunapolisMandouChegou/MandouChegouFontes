@@ -22,7 +22,7 @@
                                            itemValue="#{pessoaItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{contratanteController.update}" value="#{bundle.Save}" update="display,:ContratanteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ContratanteEditDialog');"/>
+                    <p:commandButton actionListener="#{contratanteController.update()}" value="#{bundle.Save}" update="display,:ContratanteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ContratanteEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ContratanteEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

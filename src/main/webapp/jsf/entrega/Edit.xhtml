@@ -31,7 +31,7 @@
                         <p:outputLabel value="#{bundle.EditEntregaLabel_conclusao}" for="conclusao" />
                         <p:calendar id="conclusao" pattern="MM/dd/yyyy HH:mm:ss" value="#{entregaController.selected.conclusao}" title="#{bundle.EditEntregaTitle_conclusao}"  showOn="button"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{entregaController.update}" value="#{bundle.Save}" update="display,:EntregaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EntregaEditDialog');"/>
+                    <p:commandButton actionListener="#{entregaController.update()}" value="#{bundle.Save}" update="display,:EntregaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EntregaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="EntregaEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

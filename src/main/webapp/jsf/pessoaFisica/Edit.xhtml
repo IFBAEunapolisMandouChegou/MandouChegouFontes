@@ -31,7 +31,7 @@
                         <p:outputLabel value="#{bundle.EditPessoaFisicaLabel_email}" for="email" />
                         <p:inputText id="email" value="#{pessoaFisicaController.selected.email}" title="#{bundle.EditPessoaFisicaTitle_email}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{pessoaFisicaController.update}" value="#{bundle.Save}" update="display,:PessoaFisicaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PessoaFisicaEditDialog');"/>
+                    <p:commandButton actionListener="#{pessoaFisicaController.update()}" value="#{bundle.Save}" update="display,:PessoaFisicaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PessoaFisicaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PessoaFisicaEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

@@ -24,7 +24,7 @@
                         <p:outputLabel value="#{bundle.EditDestinatarioLabel_comentario}" for="comentario" />
                         <p:inputText id="comentario" value="#{destinatarioController.selected.comentario}" title="#{bundle.EditDestinatarioTitle_comentario}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{destinatarioController.update}" value="#{bundle.Save}" update="display,:DestinatarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DestinatarioEditDialog');"/>
+                    <p:commandButton actionListener="#{destinatarioController.update()}" value="#{bundle.Save}" update="display,:DestinatarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DestinatarioEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="DestinatarioEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

@@ -44,7 +44,7 @@
                         <p:outputLabel value="#{bundle.EditPedidoLabel_conclusao}" for="conclusao" />
                         <p:calendar id="conclusao" pattern="MM/dd/yyyy HH:mm:ss" value="#{pedidoController.selected.conclusao}" title="#{bundle.EditPedidoTitle_conclusao}"  showOn="button"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{pedidoController.update}" value="#{bundle.Save}" update="display,:PedidoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PedidoEditDialog');"/>
+                    <p:commandButton actionListener="#{pedidoController.update()}" value="#{bundle.Save}" update="display,:PedidoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PedidoEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PedidoEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

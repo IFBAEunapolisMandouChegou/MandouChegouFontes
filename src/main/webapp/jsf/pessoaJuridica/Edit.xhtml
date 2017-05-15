@@ -29,7 +29,7 @@
                         <p:outputLabel value="#{bundle.EditPessoaJuridicaLabel_email}" for="email" />
                         <p:inputText id="email" value="#{pessoaJuridicaController.selected.email}" title="#{bundle.EditPessoaJuridicaTitle_email}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{pessoaJuridicaController.update}" value="#{bundle.Save}" update="display,:PessoaJuridicaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PessoaJuridicaEditDialog');"/>
+                    <p:commandButton actionListener="#{pessoaJuridicaController.update()}" value="#{bundle.Save}" update="display,:PessoaJuridicaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PessoaJuridicaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PessoaJuridicaEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

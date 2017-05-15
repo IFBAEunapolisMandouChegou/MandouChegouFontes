@@ -17,7 +17,7 @@
                         <p:outputLabel value="#{bundle.CreatePagamentoEntregadorLabel_dataPagamento}" for="dataPagamento" />
                         <p:calendar id="dataPagamento" pattern="MM/dd/yyyy HH:mm:ss" value="#{pagamentoEntregadorController.selected.dataPagamento}" title="#{bundle.EditPagamentoEntregadorTitle_dataPagamento}"  showOn="button"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{pagamentoEntregadorController.create}" value="#{bundle.Save}" update="display,:PagamentoEntregadorListForm:datalist,:growl" oncomplete="handleSubmit(args,'PagamentoEntregadorCreateDialog');"/>
+                    <p:commandButton actionListener="#{pagamentoEntregadorController.create()}" value="#{bundle.Save}" update="display,:PagamentoEntregadorListForm:datalist,:growl" oncomplete="handleSubmit(args,'PagamentoEntregadorCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PagamentoEntregadorCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

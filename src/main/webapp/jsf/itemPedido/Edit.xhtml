@@ -23,7 +23,7 @@
                         <p:outputLabel value="#{bundle.EditItemPedidoLabel_retornavel}" for="retornavel" />
                         <p:selectBooleanCheckbox id="retornavel" value="#{itemPedidoController.selected.retornavel}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{itemPedidoController.update}" value="#{bundle.Save}" update="display,:ItemPedidoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ItemPedidoEditDialog');"/>
+                    <p:commandButton actionListener="#{itemPedidoController.update()}" value="#{bundle.Save}" update="display,:ItemPedidoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ItemPedidoEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ItemPedidoEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

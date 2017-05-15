@@ -21,7 +21,7 @@
                         <p:outputLabel value="#{bundle.CreateCarteiraHabilitacaoLabel_vencimento}" for="vencimento" />
                         <p:calendar id="vencimento" pattern="MM/dd/yyyy" value="#{carteiraHabilitacaoController.selected.vencimento}" title="#{bundle.EditCarteiraHabilitacaoTitle_vencimento}"  showOn="button"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{carteiraHabilitacaoController.create}" value="#{bundle.Save}" update="display,:CarteiraHabilitacaoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CarteiraHabilitacaoCreateDialog');"/>
+                    <p:commandButton actionListener="#{carteiraHabilitacaoController.create()}" value="#{bundle.Save}" update="display,:CarteiraHabilitacaoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CarteiraHabilitacaoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CarteiraHabilitacaoCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

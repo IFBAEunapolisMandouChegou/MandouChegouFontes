@@ -21,7 +21,7 @@
                         <p:outputLabel value="#{bundle.EditCupomDescontoLabel_descricao}" for="descricao" />
                         <p:inputText id="descricao" value="#{cupomDescontoController.selected.descricao}" title="#{bundle.EditCupomDescontoTitle_descricao}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{cupomDescontoController.update}" value="#{bundle.Save}" update="display,:CupomDescontoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CupomDescontoEditDialog');"/>
+                    <p:commandButton actionListener="#{cupomDescontoController.update()}" value="#{bundle.Save}" update="display,:CupomDescontoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CupomDescontoEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CupomDescontoEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

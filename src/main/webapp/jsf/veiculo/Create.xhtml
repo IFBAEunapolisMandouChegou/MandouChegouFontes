@@ -27,7 +27,7 @@
                         <p:outputLabel value="#{bundle.CreateVeiculoLabel_renavam}" for="renavam" />
                         <p:inputText id="renavam" value="#{veiculoController.selected.renavam}" title="#{bundle.CreateVeiculoTitle_renavam}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{veiculoController.create}" value="#{bundle.Save}" update="display,:VeiculoListForm:datalist,:growl" oncomplete="handleSubmit(args,'VeiculoCreateDialog');"/>
+                    <p:commandButton actionListener="#{veiculoController.create()}" value="#{bundle.Save}" update="display,:VeiculoListForm:datalist,:growl" oncomplete="handleSubmit(args,'VeiculoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="VeiculoCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

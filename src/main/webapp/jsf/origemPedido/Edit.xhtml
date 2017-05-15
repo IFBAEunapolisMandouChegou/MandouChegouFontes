@@ -26,7 +26,7 @@
                         <p:outputLabel value="#{bundle.EditOrigemPedidoLabel_comentario}" for="comentario" />
                         <p:inputText id="comentario" value="#{origemPedidoController.selected.comentario}" title="#{bundle.EditOrigemPedidoTitle_comentario}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{origemPedidoController.update}" value="#{bundle.Save}" update="display,:OrigemPedidoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OrigemPedidoEditDialog');"/>
+                    <p:commandButton actionListener="#{origemPedidoController.update()}" value="#{bundle.Save}" update="display,:OrigemPedidoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OrigemPedidoEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="OrigemPedidoEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

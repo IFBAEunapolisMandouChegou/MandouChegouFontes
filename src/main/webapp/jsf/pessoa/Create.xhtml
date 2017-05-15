@@ -23,7 +23,7 @@
                         <p:outputLabel value="#{bundle.CreatePessoaLabel_email}" for="email" />
                         <p:inputText id="email" value="#{pessoaController.selected.email}" title="#{bundle.CreatePessoaTitle_email}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{pessoaController.create}" value="#{bundle.Save}" update="display,:PessoaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PessoaCreateDialog');"/>
+                    <p:commandButton actionListener="#{pessoaController.create()}" value="#{bundle.Save}" update="display,:PessoaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PessoaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="PessoaCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

@@ -23,7 +23,7 @@
                         <p:outputLabel value="#{bundle.CreateDestinatarioLabel_comentario}" for="comentario" />
                         <p:inputText id="comentario" value="#{destinatarioController.selected.comentario}" title="#{bundle.CreateDestinatarioTitle_comentario}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{destinatarioController.create}" value="#{bundle.Save}" update="display,:DestinatarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'DestinatarioCreateDialog');"/>
+                    <p:commandButton actionListener="#{destinatarioController.create()}" value="#{bundle.Save}" update="display,:DestinatarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'DestinatarioCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="DestinatarioCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
