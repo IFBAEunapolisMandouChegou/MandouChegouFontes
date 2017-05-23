@@ -43,4 +43,19 @@ public class ItemRegistration {
         em.persist(item);
         itemEventSrc.fire(item);
     }
+    
+    public void delete(Item item) throws Exception {
+		log.info("Deletando " + item.getDescricao());
+		em.remove(em.merge(item));
+		itemEventSrc.fire(item);
+	}
+
+    
+	public void update(Item item) throws Exception {
+		log.info("Atualizando " + item.getDescricao());
+		em.merge(item);
+
+		itemEventSrc.fire(item);
+	}
+
 }
