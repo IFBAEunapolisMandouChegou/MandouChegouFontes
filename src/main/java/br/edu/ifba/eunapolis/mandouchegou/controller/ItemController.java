@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.edu.ifba.eunapolis.mandouchegou.data.ItemRepository;
 import br.edu.ifba.eunapolis.mandouchegou.model.Item;
 import br.edu.ifba.eunapolis.mandouchegou.service.ItemRegistration;
 
@@ -21,6 +22,9 @@ public class ItemController {
     @Inject
     private ItemRegistration itemRegistration;
 
+    @Inject
+	private ItemRepository itemRepository;
+    
     @Produces
     @Named
     private Item newItem;
@@ -29,6 +33,15 @@ public class ItemController {
     public void initNewItem() {
         newItem = new Item();
     }
+    
+    public String setSelected(Long id) {
+		this.newItem = this.findById(id);
+		return "editaritem.jsf";
+	}
+    
+    public Item findById(Long id) {
+		return itemRepository.findById(id);
+	}
 
     public void register() throws Exception {
         try {
@@ -42,6 +55,32 @@ public class ItemController {
             facesContext.addMessage(null, m);
         }
     }
+    
+    public void update() throws Exception {
+		try {
+			itemRegistration.update(newItem);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualizado Com Sucesso!",
+					"Registration successful");
+			facesContext.addMessage(null, m);
+		} catch (Exception e) {
+			String errorMessage = getRootErrorMessage(e);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
+			facesContext.addMessage(null, m);
+		}
+	}
+
+	public void delete(Long id) throws Exception {
+		try {
+			itemRegistration.delete(this.findById(id));
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Deletado", "Deletation successful");
+			facesContext.addMessage(null, m);
+		} catch (Exception e) {
+			String errorMessage = getRootErrorMessage(e);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Deletation unsuccessful");
+			facesContext.addMessage(null, m);
+		}
+	}
+
 
     private String getRootErrorMessage(Exception e) {
         // Default to general error message that registration failed.
