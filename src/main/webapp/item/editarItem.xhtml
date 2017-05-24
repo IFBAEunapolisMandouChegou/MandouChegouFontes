@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="content">
+		<div class="android-screen-section mdl-typography--text-center">
+			<div class="android-be-together-section mdl-typography--text-center">
+
+			</div>
+			<h2>Editar Itens</h2>
+			<h:form id="reg">
+				<h:inputHidden value="#{newItem.id}" />
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="codigo" value="Código"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="codigo" value="#{newItem.codigo}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="codigo" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+
+				<h:panelGroup layout="block"
+					styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<h:outputLabel for="descricao" value="Descrição"
+						styleClass="mdl-textfield__label" />
+					<h:inputText id="descricao" value="#{newItem.descricao}"
+						styleClass="mdl-textfield__input" />
+					<h:message for="descricao" errorClass="mdl-textfield__error" />
+
+				</h:panelGroup>
+
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="tamanho" value="Tamanho:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="tamanho" value="#{newItem.tamanho}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="tamanho" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="complemento" value="Complemento:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="complemento" value="#{newItem.complemento}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="complemento" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="valor" value="Valor:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="valorItem" value="#{newItem.valorItem}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="valorItem" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+
+				<p>
+					<h:panelGroup layout="block">
+						<h:commandButton id="Update" action="#{itemController.update}"
+							action="#{itemController.abrirListarItem}" value="Atualizar"
+							styleClass="mdl-button mdl-js-button mdl-button--raised">
+
+						</h:commandButton>
+
+					</h:panelGroup>
+				</p>
+
+			</h:form>
+		</div>
+
+	</ui:define>
+</ui:composition>

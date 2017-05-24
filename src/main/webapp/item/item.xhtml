@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<div class="android-screen-section mdl-typography--text-center">
+			<div class="android-be-together-section mdl-typography--text-center">
+
+			</div>
+			<h2>Cadastro de Itens</h2>
+			<h:form id="reg">
+				<h:panelGroup layout="block"
+					styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<h:outputLabel for="codigo" value="Código do Item"
+						styleClass="mdl-textfield__label" />
+					<h:inputText id="codigo" value="#{newItem.codigo}"
+						styleClass="mdl-textfield__input" />
+					<h:message for="codigo" errorClass="mdl-textfield__error" />
+
+				</h:panelGroup>
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="descricao" value="Descrição:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="descricao" value="#{newItem.descricao}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="descricao" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="tamanho" value="Tamanho:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="tamanho" value="#{newItem.tamanho}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="tamanho" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="complemento" value="Complemento:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="complemento" value="#{newItem.complemento}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="complemento" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+						<h:outputLabel for="valor" value="Valor:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="valorItem" value="#{newItem.valorItem}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="valorItem" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</p>
+
+				<p>
+					<h:panelGroup layout="block">
+						<h:commandButton id="register" action="#{itemController.register}"
+							value="Salvar"
+							styleClass="mdl-button mdl-js-button mdl-button--raised" />
+						<h:messages styleClass="messages" errorClass="invalid"
+							infoClass="valid" warnClass="warning" globalOnly="true" />
+					</h:panelGroup>
+				</p>
+
+			</h:form>
+		<div class="mdl-typography--display-1-color-contrast">Itens</div>
+			<h:panelGroup rendered="#{empty item}">
+				<em>Nenhuma Item Encontrado.</em>
+			</h:panelGroup>
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col"></div>
+				<h:panelGroup>
+					<div class="mdl-cell mdl-cell--4-col">
+						<h:dataTable var="_item" value="#{item}"
+							rendered="#{not empty item}"
+							styleClass="mdl-data-table mdl-js-data-table mdl-data-table- mdl-shadow--2dp">
+							<h:column>
+								<f:facet name="header">Código</f:facet>
+                #{_item.codigo}
+            </h:column>
+							<h:column>
+								<f:facet name="header">Descrição</f:facet>
+                #{_item.descricao}
+            </h:column>
+
+							<h:column>
+								<f:facet name="header">Tamanho</f:facet>
+                #{_item.tamanho}
+            </h:column>
+            
+            <h:column>
+								<f:facet name="header">Complemento</f:facet>
+                #{_item.complemento}
+            </h:column>
+            
+            <h:column>
+								<f:facet name="header">Valor</f:facet>
+                #{_item.valorItem}
+            </h:column>
+						</h:dataTable>
+					</div>
+				</h:panelGroup>
+
+				<div class="mdl-cell mdl-cell--4-col"></div>
+
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
