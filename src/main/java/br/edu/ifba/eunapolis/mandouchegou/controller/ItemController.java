@@ -12,60 +12,69 @@ import br.edu.ifba.eunapolis.mandouchegou.data.ItemRepository;
 import br.edu.ifba.eunapolis.mandouchegou.model.Item;
 import br.edu.ifba.eunapolis.mandouchegou.service.ItemRegistration;
 
-
 @Model
 public class ItemController {
 
-    @Inject
-    private FacesContext facesContext;
+	@Inject
+	private FacesContext facesContext;
 
-    @Inject
-    private ItemRegistration itemRegistration;
+	@Inject
+	private ItemRegistration itemRegistration;
 
-    @Inject
+	@Inject
 	private ItemRepository itemRepository;
-    
-    @Produces
-    @Named
-    private Item newItem;
 
-    @PostConstruct
-    public void initNewItem() {
-        newItem = new Item();
-    }
-    
-    public String setSelected(Long id) {
-		this.newItem = this.findById(id);
-		return "editaritem.jsf";
+	@Produces
+	@Named
+	private Item newItem;
+
+	@PostConstruct
+	public void initNewItem() {
+		newItem = new Item();
 	}
-    
-    public Item findById(Long id) {
+
+	public String alterar() throws Exception{
+		update();
+		return "listarItem.jsf";
+	}
+	
+	public String novoItem() {
+		return "item.jsf";
+	}
+
+	public String setSelected(Long id) {
+		this.newItem = this.findById(id);
+		return "editarItem.jsf";
+	}
+
+	public Item findById(Long id) {
 		return itemRepository.findById(id);
 	}
 
-    public void register() throws Exception {
-        try {
-            itemRegistration.register(newItem);
-            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
-            facesContext.addMessage(null, m);
-            initNewItem();
-        } catch (Exception e) {
-            String errorMessage = getRootErrorMessage(e);
-            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
-            facesContext.addMessage(null, m);
-        }
-    }
-    
-    public void update() throws Exception {
+	public void register() throws Exception {
 		try {
-			itemRegistration.update(newItem);
-			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualizado Com Sucesso!",
-					"Registration successful");
+			itemRegistration.register(newItem);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
 			facesContext.addMessage(null, m);
+			initNewItem();
 		} catch (Exception e) {
 			String errorMessage = getRootErrorMessage(e);
 			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
 			facesContext.addMessage(null, m);
+		}
+	}
+
+	public void update() throws Exception {
+		try {
+			itemRegistration.update(newItem);
+			            
+
+
+		} catch (Exception e) {
+			String errorMessage = getRootErrorMessage(e);
+			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
+			facesContext.addMessage(null, m);
+			FacesContext.getCurrentInstance().getExternalContext().redirect("http://localhost:8080/MandouChegou/item/listarItem.jsf");
 		}
 	}
 
@@ -81,27 +90,23 @@ public class ItemController {
 		}
 	}
 
+	private String getRootErrorMessage(Exception e) {
+		// Default to general error message that registration failed.
+		String errorMessage = "Registration failed. See server log for more information";
+		if (e == null) {
+			// This shouldn't happen, but return the default messages
+			return errorMessage;
+		}
 
-    private String getRootErrorMessage(Exception e) {
-        // Default to general error message that registration failed.
-        String errorMessage = "Registration failed. See server log for more information";
-        if (e == null) {
-            // This shouldn't happen, but return the default messages
-            return errorMessage;
-        }
-
-        // Start with the exception and recurse to find the root cause
-        Throwable t = e;
-        while (t != null) {
-            // Get the message from the Throwable class instance
-            errorMessage = t.getLocalizedMessage();
-            t = t.getCause();
-        }
-        // This is the root cause message
-        return errorMessage;
-    }
+		// Start with the exception and recurse to find the root cause
+		Throwable t = e;
+		while (t != null) {
+			// Get the message from the Throwable class instance
+			errorMessage = t.getLocalizedMessage();
+			t = t.getCause();
+		}
+		// This is the root cause message
+		return errorMessage;
+	}
 
 }
-
-
-

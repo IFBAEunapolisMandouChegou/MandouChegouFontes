@@ -51,11 +51,13 @@ public class ItemRegistration {
 	}
 
     
+    
 	public void update(Item item) throws Exception {
 		log.info("Atualizando " + item.getDescricao());
 		em.merge(item);
-
 		itemEventSrc.fire(item);
 	}
+	
+	
 
 }

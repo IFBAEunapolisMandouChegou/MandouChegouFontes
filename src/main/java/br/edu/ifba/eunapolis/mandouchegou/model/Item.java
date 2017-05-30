@@ -5,10 +5,6 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedNativeQueries;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author William
@@ -27,10 +23,7 @@ public class Item implements Serializable {
 	private String descricao;
 	private String tamanho;
 	private String complemento;
-	
 	private long valorItem;
-	
-	
 	public long getId() {
 		return id;
 	}
@@ -49,8 +42,6 @@ public class Item implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
 	public String getTamanho() {
 		return tamanho;
 	}
@@ -91,5 +82,6 @@ public class Item implements Serializable {
 	}
 	
 	
+		
 	
 }
