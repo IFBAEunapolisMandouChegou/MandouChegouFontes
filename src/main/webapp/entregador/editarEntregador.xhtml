@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="content">
+		<div class="android-screen-section mdl-typography--text-center">
+			<div class="android-be-together-section mdl-typography--text-center">
+
+			</div>
+			<h2>Editar Entregadores</h2>
+			<h:form id="reg">
+			
+				<h:inputHidden value="#{newEntregador.id}" />
+
+				<!-- Lugar de inserção dos dados das abas -->
+				<div class="mdl-tabs__panel is-active" id="starks-panel">
+					<br /> <br />
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="nome" value="Nome"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="nome" value="#{newEntregador.pessoa.nome}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="nome" errorClass="mdl-textfield__error" />
+
+
+						</h:panelGroup>
+					</p>
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="endereco" value="Endereço"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="endereco"
+								value="#{newEntregador.pessoa.endereco}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="endereco" errorClass="mdl-textfield__error" />
+
+
+						</h:panelGroup>
+					</p>
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="telefone" value="Telefone"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="telefone"
+								value="#{newEntregador.pessoa.telefone}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="telefone" errorClass="mdl-textfield__error" />
+
+
+						</h:panelGroup>
+
+
+					</p>
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="email" value="E-mail"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="email" value="#{newEntregador.pessoa.email}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="email" errorClass="mdl-textfield__error" />
+						</h:panelGroup>
+
+
+					</p>
+
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="dataNascimento" value="Data de Nascimento"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="dataNascimento"
+								value="#{newEntregador.pessoa.dataNascimento}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="dataNascimento" errorClass="mdl-textfield__error" />
+						</h:panelGroup>
+
+
+					</p>
+
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="sexo" value="Sexo"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="sexo" value="#{newEntregador.pessoa.sexo}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="sexo" errorClass="mdl-textfield__error" />
+						</h:panelGroup>
+
+
+					</p>
+
+				</div>
+				<!-- aba DOCUMENTÇÃO -->
+				<div class="mdl-tabs__panel" id="lannisters-panel">
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="rg" value="RG"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="rg" value="#{newEntregador.pessoa.rg}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="rg" errorClass="mdl-textfield__error" />
+						</h:panelGroup>
+
+
+					</p>
+
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="cpf" value="CPF"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="cpf" value="#{newEntregador.pessoa.cpf}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="cpf" errorClass="mdl-textfield__error" />
+						</h:panelGroup>
+
+
+					</p>
+
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="numerocnh" value="Numeração da cnh"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="numerocnh"
+								value="#{newEntregador.cnh.numeracao}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="numerocnh" errorClass="mdl-textfield__error" />
+						</h:panelGroup>
+
+					</p>
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="categoria" value="Categoria da habilitação"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="categoria"
+								value="#{newEntregador.cnh.categoria}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="categoria" errorClass="mdl-textfield__error" />
+						</h:panelGroup>
+
+
+					</p>
+
+					<p>
+						<h:panelGroup layout="block"
+							styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<h:outputLabel for="vencimento" value="Data de Vencimento"
+								styleClass="mdl-textfield__label" />
+							<h:inputText id="vencimento"
+								value="#{newEntregador.cnh.vencimento}"
+								styleClass="mdl-textfield__input" />
+							<h:message for="vencimento" errorClass="mdl-textfield__error" />
+						</h:panelGroup>
+
+
+					</p>
+
+
+
+				</div>
+				<!-- aba dados do veículo -->
+				<div class="mdl-tabs__panel" id="targaryens-panel"></div>
+
+				<p>
+					<h:panelGroup layout="block" >
+						<h:commandButton id="Update" action="#{entregadorController.alterar}"
+							value="Atualizar"
+							styleClass="mdl-button mdl-js-button mdl-button--raised" >
+							
+						</h:commandButton>
+
+					</h:panelGroup>
+				</p>
+				
+		
+
+
+		</h:form>
+
+
+		</div>
+
+	</ui:define>
+</ui:composition>

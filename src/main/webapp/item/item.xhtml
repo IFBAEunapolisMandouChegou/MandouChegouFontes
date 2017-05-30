@@ -64,7 +64,9 @@
 						<h:outputLabel for="valor" value="Valor:"
 							styleClass="mdl-textfield__label" />
 						<h:inputText id="valorItem" value="#{newItem.valorItem}"
-							styleClass="mdl-textfield__input" />
+							styleClass="mdl-textfield__input">
+
+						</h:inputText>
 						<h:message for="valorItem" errorClass="mdl-textfield__error" />
 					</h:panelGroup>
 				</p>
@@ -80,7 +82,7 @@
 				</p>
 
 			</h:form>
-		<div class="mdl-typography--display-1-color-contrast">Itens</div>
+			<div class="mdl-typography--display-1-color-contrast">Itens</div>
 			<h:panelGroup rendered="#{empty item}">
 				<em>Nenhuma Item Encontrado.</em>
 			</h:panelGroup>
@@ -104,13 +106,13 @@
 								<f:facet name="header">Tamanho</f:facet>
                 #{_item.tamanho}
             </h:column>
-            
-            <h:column>
+
+							<h:column>
 								<f:facet name="header">Complemento</f:facet>
                 #{_item.complemento}
             </h:column>
-            
-            <h:column>
+
+							<h:column>
 								<f:facet name="header">Valor</f:facet>
                 #{_item.valorItem}
             </h:column>

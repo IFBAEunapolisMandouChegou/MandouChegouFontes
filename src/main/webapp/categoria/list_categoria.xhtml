@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<div class="android-customized-section">
+			<h1 class="mdl-typography--display-2-color-contrast">Listagem de
+				Categorias.</h1>
+			<div class="mdl-typography--display-1-color-contrast">Categoria
+				Registrada</div>
+			<h:panelGroup rendered="#{empty categoriaProdutos}">
+				<em>Nenhuma Categoria Registrada.</em>
+			</h:panelGroup>
+			<h:form id="reg2">
+				<div class="mdl-grid mdl-layout__header--scroll">
+					<div class="mdl-cell mdl-cell--10-col center">
+						<h:panelGroup styleClass="block">
+							<h:dataTable id="t" var="_catpro" value="#{categoriaProdutos}"
+								rendered="#{not empty categoriaProdutos}"
+								styleClass="mdl-data-table mdl-js-data-table mdl-data-table- mdl-shadow--2dp center">
+								<h:column>
+									<f:facet name="header">Id</f:facet>
+				                #{_catpro.id}
+				            </h:column>
+								<h:column>
+									<f:facet name="header">Nome</f:facet>
+				                #{_catpro.nome}
+				            </h:column>
+								<h:column>
+									<f:facet name="header">Categoria Pai</f:facet>
+				                #{_catpro.categoriaProdutoPai.nome}
+				            </h:column>
+								<h:column>
+									<f:facet name="header">Data Criação</f:facet>
+									<h:outputText value="#{_catpro.created_at}">
+										<f:convertDateTime pattern="EEE, dd/MM/YYYY hh:mm" />
+									</h:outputText>
+
+								</h:column>
+								<h:column>
+									<h:commandButton id="Delete"
+										action="#{categoriaProdutoController.delete(_catpro.id)}"
+										value="Delete"
+										styleClass="mdl-button mdl-js-button mdl-button--raised" />
+								</h:column>
+								<h:column>
+									<h:commandButton id="Update"
+										action="#{categoriaProdutoController.setSelected(_catpro.id)}"
+										value="Update"
+										styleClass="mdl-button mdl-js-button mdl-button--raised" />
+								</h:column>
+							</h:dataTable>
+						</h:panelGroup>
+					</div>
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

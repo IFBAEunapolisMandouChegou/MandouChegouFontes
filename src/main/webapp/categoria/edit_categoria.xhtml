@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<div class="android-customized-section">
+			<h1 class="mdl-typography--display-2-color-contrast">Edite os
+				dados do -> #{newCategoriaProduto.nome}</h1>
+			<div class="mdl-typography--display-0-color-contrast">Altere os
+				dados Corretamente</div>
+			<h:form id="reg">
+				<h:inputHidden value="#{newCategoriaProduto.id}" />
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<h:panelGroup layout="block">
+						<h:outputLabel for="nome" value="Nome:"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="nome" value="#{newCategoriaProduto.nome}"
+							styleClass="mdl-textfield__input" required="true"
+							requiredMessage="Campo Obrigatório" />
+						<h:message for="nome" errorClass="mdl-textfield__error" />
+					</h:panelGroup>
+				</div>
+				<p>
+					<h:panelGroup layout="block">
+						<h:selectOneMenu styleClass="selectpicker show-tick"
+							pt:data-actions-box="true" pt:data-live-search="true"
+							value="#{newCategoriaProduto.categoriaProdutoPai}"
+							converter="#{entityConverter}">
+							<f:selectItem itemLabel="Categorias"
+								noSelectionOption="true" />
+							<f:selectItems value="#{categoriaProdutos}" var="c"
+								itemLabel="#{c.nome}" itemValue="#{c}" />
+						</h:selectOneMenu>
+					</h:panelGroup>
+				</p>
+				<h:panelGroup>
+					<h:commandButton id="Update"
+						action="#{categoriaProdutoController.update}" value="Atualizar"
+						styleClass="mdl-button mdl-js-button mdl-button--raised">
+					</h:commandButton>
+				</h:panelGroup>
+				<h:message infoClass="valid" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

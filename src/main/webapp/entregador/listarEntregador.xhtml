@@ -9,57 +9,60 @@
 			<div class="android-be-together-section mdl-typography--text-center">
 
 			</div>
-			<h2>Lista de Itens</h2>
-			<div class="mdl-typography--display-1-color-contrast">Itens</div>
-			<div class="mdl-cell mdl-cell--12-col">
-				
-			</div>
-			
-			
+			<h2>Lista de Entregadores</h2>
+			<div class="mdl-typography--display-1-color-contrast">Entregadores</div>
+			<div class="mdl-cell mdl-cell--12-col"></div>
+
+
 			<h:panelGroup rendered="#{empty item}">
-				<em>Nenhum Item Encontrado.</em>
+				<em>Nenhum Entregador Encontrado.</em>
 			</h:panelGroup>
 
 			<h:form id="reg">
 				<div class="mdl-grid">
-					<div class="mdl-cell mdl-cell--2-col"></div>
+					<div class="mdl-cell mdl-cell--1-col"></div>
 					<h:panelGroup>
-						<div class="mdl-cell mdl-cell--2-col">
-							<h:dataTable var="_item" value="#{item}"
-								rendered="#{not empty item}"
+						<div class="mdl-cell mdl-cell--1-col">
+							<h:dataTable var="_entregador" value="#{entregador}"
+								rendered="#{not empty entregador}"
 								styleClass="mdl-data-table mdl-js-data-table mdl-data-table- mdl-shadow--2dp">
 								<h:column>
-									<f:facet name="header">Código</f:facet>
-                #{_item.codigo}
+									<f:facet name="header">Nome</f:facet>
+                #{_entregador.pessoa.nome}
             </h:column>
 								<h:column>
-									<f:facet name="header">Descrição</f:facet>
-                #{_item.descricao}
+									<f:facet name="header">CPF</f:facet>
+                #{_entregador.pessoa.cpf}
+            </h:column>
+								<h:column>
+									<f:facet name="header">Email</f:facet>
+                #{_entregador.pessoa.email}
+            </h:column>
+								<h:column>
+									<f:facet name="header">Telefone</f:facet>
+                #{_entregador.pessoa.telefone}
+            </h:column>
+								<h:column>
+									<f:facet name="header">Número CNH</f:facet>
+                #{_entregador.cnh.numeracao}
+            </h:column>
+								<h:column>
+									<f:facet name="header">Data de Nascimento</f:facet>
+                #{_entregador.pessoa.dataNascimento}
             </h:column>
 
-								<h:column>
-									<f:facet name="header">Tamanho</f:facet>
-                #{_item.tamanho}
-            </h:column>
+						
 
-								<h:column>
-									<f:facet name="header">Complemento</f:facet>
-                #{_item.complemento}
-            </h:column>
-
-								<h:column>
-									<f:facet name="header">Valor</f:facet>
-                #{_item.valorItem}
-            </h:column>
 
 								<h:column>
 									<h:commandButton id="Delete"
-										action="#{itemController.delete(_item.id)}" value="Delete"
+										action="#{entregadorController.delete(_entregador.id)}"
+										value="Delete"
 										styleClass="mdl-button mdl-js-button mdl-button--raised" />
 								</h:column>
 								<h:column>
 									<h:commandButton id="Update"
-										action="#{itemController.setSelected(_item.id)}"
+										action="#{entregadorController.setSelected(_entregador.id)}"
 										value="Update"
 										styleClass="mdl-button mdl-js-button mdl-button--raised" />
 								</h:column>
