@@ -26,32 +26,30 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.edu.ifba.eunapolis.mandouchegou.model.CategoriaProduto;
-
-
+import br.edu.ifba.eunapolis.mandouchegou.model.Pedido;
 
 @RequestScoped
-public class CategoriaProdutoListProducer {
+public class PedidoListProducer {
 
     @Inject
-    private CategoriaProdutoRepository categoriaProdutoRepository;
+    private PedidoRepository pedidoRepository;
 
-    private List<CategoriaProduto> categoriaProdutos;
+    private List<Pedido> pedidos;
 
-    // @Named provides access the return value via the EL variable name "categoriaProdutos" in the UI (e.g.
+    // @Named provides access the return value via the EL variable name "members" in the UI (e.g.
     // Facelets or JSP view)
     @Produces
     @Named
-    public List<CategoriaProduto> getCategoriaProdutos() {
-        return categoriaProdutos;
+    public List<Pedido> getPedido() {
+        return pedidos;
     }
 
-    public void onCategoriaProdutoListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final CategoriaProduto categoriaProduto) {
-        retrieveAllCategoriaProdutosOrderedByName();
+    public void onPedidoListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Pedido pedido) {
+        retrieveAllPedidosOrderedByName();
     }
 
     @PostConstruct
-    public void retrieveAllCategoriaProdutosOrderedByName() {
-        categoriaProdutos = categoriaProdutoRepository.findAllOrderedByName();
+    public void retrieveAllPedidosOrderedByName() {
+        pedidos = pedidoRepository.findAllOrderedByName();
     }
 }
