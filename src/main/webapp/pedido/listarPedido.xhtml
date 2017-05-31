@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<div class="android-screen-section mdl-typography--text-center">
+			<div class="android-be-together-section mdl-typography--text-center">
+
+			</div>
+			<h2>Lista de Itens</h2>
+			<div class="mdl-typography--display-1-color-contrast">Itens</div>
+			<h:panelGroup rendered="#{empty item}">
+				<em>Nenhuma Item Encontrado.</em>
+			</h:panelGroup>
+			
+			<h:form id="reg">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col"></div>
+				<h:panelGroup>
+					<div class="mdl-cell mdl-cell--4-col">
+						<h:dataTable var="_item" value="#{item}"
+							rendered="#{not empty item}"
+							styleClass="mdl-data-table mdl-js-data-table mdl-data-table- mdl-shadow--2dp">
+							<h:column>
+								<f:facet name="header">Código</f:facet>
+                #{_item.codigo}
+            </h:column>
+							<h:column>
+								<f:facet name="header">Descrição</f:facet>
+                #{_item.descricao}
+            </h:column>
+
+							<h:column>
+								<f:facet name="header">Tamanho</f:facet>
+                #{_item.tamanho}
+            </h:column>
+
+							<h:column>
+								<f:facet name="header">Complemento</f:facet>
+                #{_item.complemento}
+            </h:column>
+
+							<h:column>
+								<f:facet name="header">Valor</f:facet>
+                #{_item.valorItem}
+            </h:column>
+
+							<h:column>
+								<h:commandButton id="Delete"
+									action="#{itemController.delete(_item.id)}" value="Delete"
+									styleClass="mdl-button mdl-js-button mdl-button--raised" />
+							</h:column>
+							<h:column>
+								<h:commandButton id="Update"
+									action="#{itemController.setSelected(_item.id)}" value="Update"
+									styleClass="mdl-button mdl-js-button mdl-button--raised" />
+							</h:column>
+
+						</h:dataTable>
+					</div>
+				</h:panelGroup>			
+			</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

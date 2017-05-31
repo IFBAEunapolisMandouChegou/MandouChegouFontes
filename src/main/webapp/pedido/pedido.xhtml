@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<div class="android-screen-section mdl-typography--text-center">
+			<div class="android-be-together-section mdl-typography--text-center">
+
+			</div>
+			<h2>Cadastro de Pedidos</h2>
+			<h:form id="reg">
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<h:outputLabel for="origemContratante" value="Endereço"
+							styleClass="mdl-textfield__label" />
+						<h:inputText id="origemContratante"
+							value="#{newPedido.origem.endereco}"
+							styleClass="mdl-textfield__input" />
+						<h:message for="origemContratante"
+							errorClass="mdl-textfield__error" />
+
+					</h:panelGroup>
+				</p>
+
+				<p>
+					<h:panelGroup layout="block"
+						styleClass="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<h:outputLabel for="lpPedido" value="Item"
+							styleClass="mdl-textfield__label" />
+						<h:selectManyListbox converter="#{entityConverter}"
+							value="#{newPedido.itens}" id="lpPedido"
+							pt:multiple="true"
+							styleClass="selectpicker show-tick" pt:data-size="5"
+							pt:data-live-search="true">
+						<f:selectItems value="#{item}" var="i" itemValue="#{i}"
+							itemLabel="#{i}" />
+						</h:selectManyListbox>
+						<h:message for="lpPedido" errorClass="mdl-textfield__error" />
+
+					</h:panelGroup>
+				</p>
+
+
+
+				<p>
+					<h:panelGroup layout="block">
+						<h:commandButton id="register"
+							action="#{pedidoController.register}" value="Salvar"
+							styleClass="mdl-button mdl-js-button mdl-button--raised" />
+						<h:messages styleClass="messages" errorClass="invalid"
+							infoClass="valid" warnClass="warning" globalOnly="true" />
+					</h:panelGroup>
+				</p>
+
+			</h:form>
+			<div class="mdl-typography--display-1-color-contrast">Itens</div>
+			<h:panelGroup rendered="#{empty pedido}">
+				<em>Nenhuma Item Encontrado.</em>
+			</h:panelGroup>
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--4-col"></div>
+				<h:panelGroup>
+					<div class="mdl-cell mdl-cell--4-col">
+						<h:dataTable var="_pedido" value="#{pedido}"
+							rendered="#{not empty pedido}"
+							styleClass="mdl-data-table mdl-js-data-table mdl-data-table- mdl-shadow--2dp">
+
+							<h:column>
+								<f:facet name="header">Endereço</f:facet>
+                #{_pedido.origem.endereco}
+            </h:column>
+<h:column>
+								<f:facet name="header">Endereço</f:facet>
+                #{_pedido.itens}
+            </h:column>
+
+
+						</h:dataTable>
+					</div>
+				</h:panelGroup>
+
+				<div class="mdl-cell mdl-cell--4-col"></div>
+
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
